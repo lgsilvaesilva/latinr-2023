@@ -1,0 +1,471 @@
+---
+format: 
+  revealjs:
+    theme: [default, style.scss]
+    slide-number: c/t
+    logo: "https://www.fao.org/images/corporatelibraries/fao-logo/fao-logo-en.svg?sfvrsn=f64522b4_36"
+    incremental: true
+    width: 1600
+    height: 900
+    title-slide-attributes:
+      data-background-image: img/title-image.jpeg
+      data-background-size: cover  
+      data-background-opacity: "0.5"
+    mermaid:
+      theme: neutral
+execute: 
+  eval: true
+  echo: true
+engine: knitr
+---
+
+##  {.textcenter .title background-opacity="0.15" background-image="img/title-image.jpeg"}
+
+<h1 style="text-align: left;">
+
+Producing Early Warnings through
+
+</h1>
+
+<h1 style="text-align: left;">
+
+[Online News]{.flow}
+
+</h1>
+
+<h2 style="text-align: left;">
+
+with R
+
+</h2>
+
+<hr>
+
+<br><br>
+
+<h4 style="color: #FFF4E0;">
+
+Luís G. Silva e Silva
+
+</h4>
+
+<h4 style="color: #FFF4E0;">
+
+Data Scientist
+
+</h4>
+
+<h4 style="color: #FFF4E0;">
+
+[Data Lab for Statistical Innovation](https://www.fao.org/datalab/en)
+
+</h4>
+
+<h4 style="color: #FFF4E0;">
+
+18<sup>th</sup> October 2023
+
+</h4>
+
+<br>
+
+<h3>
+
+![](https://www.fao.org/images/corporatelibraries/fao-logo/fao-logo-en.svg?sfvrsn=f64522b4_36){.absolute top="750" left="0" height="100"} ![](https://latin-r.com/img/logo.png){.absolute top="750" left="1250" width="300"}
+
+
+## [About Me]{.faoblue} {.justify .white}
+
+::: {.nonincremental}
+
+::: {.column width="55%"}
+
+-   Master and PhD in Statistics 
+
+-   Statistician/Data Scientist at Food and Agriculture Organization of the United Nations agencies, since 2019.
+
+-   Development of real-time indicators and applications to spot and monitor crises across the world.
+
+-   Data Lab Team (Statisticians, Economists, Data Scientist)
+
+-   ☕ Café 
+
+-   ⚽ Futebol
+
+- `r fontawesome::fa('comments', fill = 'white')` Conversar
+
+:::
+
+::: {.column width="40%"}
+
+![](img/me.jpeg){border-radius='200px'}
+
+:::
+
+:::
+
+## Agenda {background-color="#414042"}
+
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/themis.png){.absolute top="15" left="950" width="200"}
+
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/shiny.png){.absolute top="15" left="1150" width="200"}
+
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidyr.png){.absolute top="15" left="1350" width="200"}
+
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/tidymodels.png){.absolute top="185" left="1050" width="200"}
+
+![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/vetiver.png){.absolute top="185" left="1250" width="200"} ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/pins.png){.absolute top="355" left="950" width="200"} ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png){.absolute top="355" left="1150" width="200"}
+
+![](https://raw.githubusercontent.com/Appsilon/rhino/main/man/figures/rhino.png){.absolute top="355" left="1350" width="200"}
+
+
+
+<br>
+
+<h3>
+
+-   `r fontawesome::fa('location-dot')` Context
+
+    </h3>
+
+    <h3>
+
+    -   `r fontawesome::fa('newspaper')` The Data
+
+        </h3>
+
+        <h3>
+
+        -   `r fontawesome::fa('wand-magic-sparkles')` Topics Classification
+
+            </h3>
+
+            <h3>
+
+            -   `r fontawesome::fa('magnifying-glass-chart')` Monitoring Tools
+
+                </h3>
+
+                <h3>
+
+                -   `r fontawesome::fa('comment-dots')` Concluding Remarks
+
+                    </h3>
+
+##  {.center background-image="img/afif-ramdhasuma-RjqCk9MqhNg-unsplash.jpeg" background-opacity="0.15"}
+
+
+<h1>[To monitor [topics]{.fragment .highlight-red fragment-index="1"} covered by the [global press]{.fragment .highlight-red .highlight-red fragment-index="1"} that are related to --- and have an [impact on]{.fragment .highlight-red fragment-index="1"} --- the [Sustainable Development Goals (SDGs)]{.fragment .highlight-red fragment-index="1"}, such as food security, climate change, and food losses and waste.]{.justify}</h1>
+
+
+##  {.incremental .highlight-last background-image="img/tech-daily-vxTWpu14zeM-unsplash.jpg" background-opacity="0.15" auto-animate="true" auto-animate-easing="ease-in-out"}
+
+::: {.r-fit-text .faoblue data-id="box1" auto-animate-delay="0"}
+Why Online
+
+[news]{.flow}?
+:::
+
+##  {.incremental .center .highlight-last background-image="img/tech-daily-vxTWpu14zeM-unsplash.jpg" background-opacity="0.15" auto-animate="true" auto-animate-easing="ease-in-out"}
+
+::: {.column width="55%"}
+::: r-fit-text
+1.  Availability
+
+2.  Timeliness
+
+3.  Data almost real-time
+
+4.  Granularity of data collection
+:::
+:::
+
+::: {.column width="40%"}
+::: {.r-fit-text .faoblue data-id="box1"}
+Why Online
+
+[news]{.flow}?
+:::
+:::
+
+## The Data {.highlight-last background-image="img/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpeg" background-opacity="0.15"}
+
+::: r-fit-text
+-   Started scraping news articles through Twitter in January 2020
+
+-   Contains more than 25 million articles.
+
+-   500+ newspapers tracked
+
+-   Granularity of data collection
+
+-   192 countries and territories covered
+
+-   8 languages: AR, ZH, EN, FR, IT, PT, RY, and ES
+:::
+
+##  {.center .highlight-last background-image="img/jukan-tateisi-bJhT_8nbUA0-unsplash.jpeg" background-opacity="0.075"}
+
+::: {.column width="55%"}
+::: r-fit-text
+-   `r fontawesome::fa('newspaper')` Data unstructured
+-   [`r fontawesome::fa('database')` How to store the data properly?]{.faoblue}
+    -   `r fontawesome::fa('person-through-window')` Accessible
+    -   `r fontawesome::fa('filter')` Filter  `r fontawesome::fa('arrow-right')`  `r fontawesome::fa('search')` Search `r fontawesome::fa('arrow-right')`  `r fontawesome::fa('cubes')` Aggregation
+-   [`r fontawesome::fa('circle-plus')` Data enrichment]{.faoblue}
+    -   `r fontawesome::fa('heart', prefer_type = 'solid')` Sentiment Analysis
+    -   `r fontawesome::fa('map-location')` Entity Recognition (countries, regions)
+    -   `r fontawesome::fa('icons')` Topics Classification
+-   `r fontawesome::fa('language')` Multiple Languages
+:::
+
+:::
+
+::: {.column width="35%"}
+::: {.r-fit-text .faoblue}
+Challenges
+:::
+:::
+
+##  {.center .justify background-color="#515966"}
+
+[Apache Solr](https://solr.apache.org/) database is used to effectively manage all the unstructured data.
+
+> Solr (pronounced "solar") is an open-source enterprise-search platform, written in Java. Its major features include full-text search, hit highlighting, faceted search, real-time indexing, dynamic clustering, database integration, NoSQL features and rich document (e.g., Word, PDF) handling. Providing distributed search and index replication, Solr is designed for scalability and fault tolerance. Solr is widely used for enterprise search and analytics use cases and has an active development community and regular releases.
+
+![](img/Apache_Solr_Logo.svg){.absolute top="-250" left="5" width="300"}
+
+-   [`solrium`](https://ropensci.org/blog/2017/11/08/solrium-solr-r/) R package developed by ROpenSci [`r fontawesome::fa('warning')` archived]{.orange .fragment}
+
+::: footer
+https://en.wikipedia.org/wiki/Apache_Solr
+:::
+
+## Data workflow {.center background-color="#90A1B8"}
+
+![Data flow illustrating the data extraction, storage, data enrichment, and dissemination](img/workflow.png){#fig-dataworkflow fig-align="center" width="100%"}
+
+## Data workflow {.center background-color="white"}
+![Workflow illustrating the extraction of sentiment score from a tweet-associated article.](img/sentiment.gif){#fig-sentiment fig-align="center" width='70%'}
+
+##  {.highlight-last background-image="img/nrd-D6Tu_L3chLE-unsplash.jpeg" background-opacity="0.50"}
+
+::: r-fit-text
+[Topics]{.faoblue}
+
+[Classification]{.faoblue}
+:::
+
+## Methods {.highlight-last background-image="img/nrd-D6Tu_L3chLE-unsplash.jpeg" background-opacity="0.05"}
+
+::: r-fit-text
+-   `r fontawesome::fa('circle-xmark', fill = '#AD5769', prefer_type = 'solid')` Latent Dirichlet Allocation (LDA)
+
+    -   Family that discovers multiple topics in a large corpus
+
+-   `r fontawesome::fa('circle-xmark', fill = '#AD5769', prefer_type = 'solid')` Multi-label classification
+
+    -   New topics may emerge over time
+
+-   `r fontawesome::fa('circle-check', fill = '#74A137', prefer_type = 'solid')` Binary classification
+
+    -   Each topic is trained separately without impacting other models.
+
+    -   `r fontawesome::fa('circle-minus', fill = '#F1C305', prefer_type = 'solid')` There is no labelled data (ground-truth)
+:::
+
+## Artificial Labelled Data (ALD) {visibility='hidden'}
+
+-   Manually classifying each instance is time-consuming, particularly when dealing with multiple topics and languages. (13 topic x 8 languages = 104 datasets)
+
+-   It is crucial to ensure that the labeled data accurately represents the real-world data without introducing bias or performance issues in the models.
+
+## Artificial Labelled Data (ALD)
+
+::: {.nonincremental}
+
+::: {.column width="50%"}
+
+1.  To define a set of precise [keywords]{.fragment .highlight-red} about the target topic
+
+2.  Build an efficient and accurate [query]{.fragment .highlight-red} to retrieve only tweets/articles closest to the target topic [based on the keywords]{.fragment .highlight-red}.[^1]
+
+3.  We begin by creating data for Class 1, the [target category]{.fragment .highlight-red}.
+
+4.  Next, we generate data for Class 0, the [non-target category]{.fragment .highlight-red}.
+
+:::
+
+[^1]: The [Proximity Search](https://solr.apache.org/guide/6_6/the-standard-query-parser.html#TheStandardQueryParser-ProximitySearches) feature provided by the Solr database is utilized to conduct a search based on the occurrence of words within a window of words.
+
+::: {.column width="45%"}
+
+![](img/sampler.png){.absolute height="80%" left="1000" top="0"}
+
+:::
+
+:::
+
+## Pipeline {background-color="#FFF4E0"}
+
+![](img/pipeline.png){fig-align="center"}
+
+## Pipeline tuning parameters {background-color="#FFF4E0"}
+
+![](img/race-anova.png){fig-align="center"}
+
+## Pipeline versioning models {background-color="#FFF4E0"}
+
+![](img/versioned-code.png){fig-align="center"}
+
+##  {.center background-image="img/TOPICS-EXPLORER-BANNER.jpeg" background-opacity="0.50"}
+
+::: r-fit-text
+[Topics]{.faoblue}
+
+[Explorer Monitor]{.faoblue}
+:::
+
+## [Topics Explorer Monitor]{.white} {.center .white background-image="img/TOPICS-EXPLORER-BANNER.jpeg" background-opacity="0.15"}
+
+-   The tool monitors the sentiment and popularity of pre-defined topics that impact the Sustainable Development Goals (SDGs).
+
+-   Following the new approach, articles are classified daily into one of the topics and the sentiment is calculated on the article.
+
+-   Users can distinguish the national press from the international press.
+
+## [Topics Explorer (Sudan)]{.white} {.center .white background-image="img/TOPICS-EXPLORER-BANNER.jpeg" background-opacity="0.10"}
+
+::: panel-tabset
+### [`r fontawesome::fa('expand', fill = 'white')` View]{.white}
+
+![](img/te-00.png){fig-align="center"}
+
+### `r fontawesome::fa('circle-info', fill = 'white')` [Info]{.white}
+
+::: {.nonincremental}
+-   Topic Selected: Social Unrest
+
+-   Country: Sudan
+
+-   Map: International Press
+
+-   The popularity of the Social Unrest topic related to Sudan increased by 186 % in the international press
+
+-   The associated sentiment fell by 21%
+:::
+
+### `r fontawesome::fa('home', fill = 'white')` [Dashboard]{.white}
+
+![](img/te-01.png){fig-align="center" width='90%'}
+
+### `r fontawesome::fa('puzzle-piece', fill = 'white')` [Insights]{.white}
+
+::: r-stack
+![](img/te-02-insights.png){fig-align="center"}
+
+![](img/te-03-network.png){.fragment fig-align="center"}
+
+![](img/te-04-hierarchical.png){.fragment fig-align="center"}
+:::
+:::
+
+::: footer
+[https://www.fao.org/datalab/early-warnings/topics-explorer/](https://www.fao.org/datalab/early-warnings/topics-explorer/en)
+:::
+
+##  {.center background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.25"}
+
+::: r-fit-text
+[Data Lab]{.faoblue}
+[Trends]{.faoblue .flow}
+:::
+
+## [Data Lab Trends]{.white} {.white .center background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.15"}
+
+-   Stepping away from pre-defined topics, the tool analyzes the popularity of any search query over the articles gathered from media outlets across various countries and languages​
+
+-   With this tool, the user can search for any topic to visualize its trend over time and its geographic distribution
+
+## [Data Lab Trends - Fertilizers]{.white} {.center .white background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.10"}
+
+::: panel-tabset
+
+### [`r fontawesome::fa('expand', fill = 'white')` View]{.white}
+
+![](img/dl-trends-01.png){fig-align="center" width='80%'}
+
+### `r fontawesome::fa('circle-info', fill = 'white')` [Info]{.white}
+
+::: {.nonincremental}
+
+-   **Search query: "fertilizers"**
+
+-   Jan/2020 - Apr/2023
+
+-   Monthly
+
+-   [Topic Popularity]{.red}: total of articles published by the national
+
+-   [Country Popularity]{.orange}: total of articles published by the international media that cited the country.
+:::
+
+### `r fontawesome::fa('home', fill = 'white')` [Dashboard]{.white}
+
+![](img/dl-trends-02-fertilizers.png){fig-align="center" width='100%'}
+
+### `r fontawesome::fa('puzzle-piece', fill = 'white')` [Country]{.white}
+
+![](img/dl-trends-03-fertilizers-russia.png){fig-align="center"}
+:::
+
+::: footer
+<https://www.fao.org/datalab/early-warnings/data-lab-trends/en>
+:::
+
+## [Data Lab Trends - Messi `r fontawesome::fa('futbol', fill = 'white')`]{.white} {.center .white background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.10"}
+
+![](img/dl-trends-messi.png){fig-align="center"}
+
+::: footer
+<https://www.fao.org/datalab/early-warnings/data-lab-trends/en>
+:::
+
+## Concluding Remarks {.center background-color='#414042' .justify background-image="img/vidar-nordli-mathisen-Kuu5mmxkwW4-unsplash.jpeg" background-opacity="0.10"}
+
+::: {.nonincremental}
+
+- The Data Lab developed multiple monitoring tools that use newspaper articles published on Twitter as input information
+
+- News are an exhaustive source of information to build almost real-time warning indicators
+
+- They are “soft” indicators that help fill data gaps in countries where little data is available 
+
+- The different monitoring tools can be accessed on the FAO Data Lab website: [www.fao.org/datalab](www.fao.org/datalab)
+
+:::
+
+## Photos {.center background-color='#414042'}
+
+::: {.nonincremental}
+
+-   Photo by <a href="https://unsplash.com/@tateisimikito?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jukan Tateisi</a> on <a href="https://unsplash.com/photos/bJhT_8nbUA0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+-   Photo by <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Patrick Tomasso</a> on <a href="https://unsplash.com/photos/Oaqk7qqNh_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+-   Photo by <a href="https://unsplash.com/@iammrcup?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Mr Cup / Fabien Barral</a> on <a href="https://unsplash.com/photos/Mwuod2cm8g4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+-   Photo by <a href="https://unsplash.com/@nicotitto?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">nrd</a> on <a href="https://unsplash.com/photos/bunch-of-vegetables-D6Tu_L3chLE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+-   Photo by <a href="https://unsplash.com/pt-br/@iamromankraft?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Kraft</a> on <a href="https://unsplash.com/pt-br/fotografias/_Zua2hyvTBk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+-   Photo by <a href="https://unsplash.com/@vidarnm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Vidar Nordli-Mathisen</a> on <a href="https://unsplash.com/photos/black-asphalt-road-between-brown-fields-during-daytime-Kuu5mmxkwW4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+  
+-   Photo by <a href="https://unsplash.com/@etiennegirardet?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Etienne Girardet</a> on <a href="https://unsplash.com/photos/a-yellow-and-white-sign-that-reads-obrigado-jWQ2rMkPnNI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
+:::
+
+## {background-color='#414042' background-image="img/etienne-girardet-jWQ2rMkPnNI-unsplash.jpeg" background-opacity="0.8"}
+
+
+
