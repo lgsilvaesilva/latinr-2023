@@ -330,7 +330,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
 
 -   The tool monitors the sentiment and popularity of pre-defined topics that impact the Sustainable Development Goals (SDGs).
 
--   Following the new approach, articles are classified daily into one of the topics and the sentiment is calculated on the article.
+-   Articles are classified daily into one of the topics and the sentiment is calculated on the article.
 
 -   Users can distinguish the national press from the international press.
 
