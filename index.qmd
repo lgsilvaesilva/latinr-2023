@@ -4,6 +4,7 @@ format:
     theme: [default, style.scss]
     slide-number: c/t
     logo: "https://www.fao.org/images/corporatelibraries/fao-logo/fao-logo-en.svg?sfvrsn=f64522b4_36"
+    favicon: 'img/logo.png'
     incremental: true
     width: 1600
     height: 900
@@ -73,14 +74,11 @@ Data Scientist
 
 ![](https://www.fao.org/images/corporatelibraries/fao-logo/fao-logo-en.svg?sfvrsn=f64522b4_36){.absolute top="750" left="0" height="100"} ![](https://latin-r.com/img/logo.png){.absolute top="750" left="1250" width="300"}
 
-
 ## [About Me]{.faoblue} {.justify .white}
 
-::: {.nonincremental}
-
+::: nonincremental
 ::: {.column width="55%"}
-
--   Master and PhD in Statistics 
+-   Master and PhD in Statistics
 
 -   Statistician/Data Scientist at Food and Agriculture Organization of the United Nations agencies, since 2019.
 
@@ -88,20 +86,16 @@ Data Scientist
 
 -   Data Lab Team (Statisticians, Economists, Data Scientist)
 
--   ☕ Café 
+-   ☕ Café
 
 -   ⚽ Futebol
 
-- `r fontawesome::fa('comments', fill = 'white')` Conversar
-
+-   `r fontawesome::fa('comments', fill = 'white')` Conversar
 :::
 
 ::: {.column width="40%"}
-
-![](img/me.jpeg){border-radius='200px'}
-
+![](img/me.jpeg){border-radius="200px"}
 :::
-
 :::
 
 ## Agenda {background-color="#414042"}
@@ -117,8 +111,6 @@ Data Scientist
 ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/vetiver.png){.absolute top="185" left="1250" width="200"} ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/pins.png){.absolute top="355" left="950" width="200"} ![](https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/dplyr.png){.absolute top="355" left="1150" width="200"}
 
 ![](https://raw.githubusercontent.com/Appsilon/rhino/main/man/figures/rhino.png){.absolute top="355" left="1350" width="200"}
-
-
 
 <br>
 
@@ -154,9 +146,7 @@ Data Scientist
 
 ##  {.center background-image="img/afif-ramdhasuma-RjqCk9MqhNg-unsplash.jpeg" background-opacity="0.15"}
 
-
-<h1>[To monitor [topics]{.fragment .highlight-red fragment-index="1"} covered by the [global press]{.fragment .highlight-red .highlight-red fragment-index="1"} that are related to --- and have an [impact on]{.fragment .highlight-red fragment-index="1"} --- the [Sustainable Development Goals (SDGs)]{.fragment .highlight-red fragment-index="1"}, such as food security, climate change, and food losses and waste.]{.justify}</h1>
-
+<h1>[To monitor ]{.justify}[topics]{.fragment .highlight-red fragment-index="1"} covered by the [global press]{.fragment .highlight-red .highlight-red fragment-index="1"} that are related to --- and have an [impact on]{.fragment .highlight-red fragment-index="1"} --- the [Sustainable Development Goals (SDGs)]{.fragment .highlight-red fragment-index="1"}, such as food security, climate change, and food losses and waste.</h1>
 
 ##  {.incremental .highlight-last background-image="img/tech-daily-vxTWpu14zeM-unsplash.jpg" background-opacity="0.15" auto-animate="true" auto-animate-easing="ease-in-out"}
 
@@ -218,7 +208,6 @@ Why Online
     -   `r fontawesome::fa('icons')` Topics Classification
 -   `r fontawesome::fa('language')` Multiple Languages
 :::
-
 :::
 
 ::: {.column width="35%"}
@@ -246,7 +235,8 @@ https://en.wikipedia.org/wiki/Apache_Solr
 ![Data flow illustrating the data extraction, storage, data enrichment, and dissemination](img/workflow.png){#fig-dataworkflow fig-align="center" width="100%"}
 
 ## Data workflow {.center background-color="white"}
-![Workflow illustrating the extraction of sentiment score from a tweet-associated article.](img/sentiment.gif){#fig-sentiment fig-align="center" width='70%'}
+
+![Workflow illustrating the extraction of sentiment score from a tweet-associated article.](img/sentiment.gif){#fig-sentiment fig-align="center" width="70%"}
 
 ##  {.highlight-last background-image="img/nrd-D6Tu_L3chLE-unsplash.jpeg" background-opacity="0.50"}
 
@@ -274,7 +264,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
     -   `r fontawesome::fa('circle-minus', fill = '#F1C305', prefer_type = 'solid')` There is no labelled data (ground-truth)
 :::
 
-## Artificial Labelled Data (ALD) {visibility='hidden'}
+## Artificial Labelled Data (ALD) {visibility="hidden"}
 
 -   Manually classifying each instance is time-consuming, particularly when dealing with multiple topics and languages. (13 topic x 8 languages = 104 datasets)
 
@@ -282,10 +272,8 @@ https://en.wikipedia.org/wiki/Apache_Solr
 
 ## Artificial Labelled Data (ALD)
 
-::: {.nonincremental}
-
+::: nonincremental
 ::: {.column width="50%"}
-
 1.  To define a set of precise [keywords]{.fragment .highlight-red} about the target topic
 
 2.  Build an efficient and accurate [query]{.fragment .highlight-red} to retrieve only tweets/articles closest to the target topic [based on the keywords]{.fragment .highlight-red}.[^1]
@@ -293,18 +281,14 @@ https://en.wikipedia.org/wiki/Apache_Solr
 3.  We begin by creating data for Class 1, the [target category]{.fragment .highlight-red}.
 
 4.  Next, we generate data for Class 0, the [non-target category]{.fragment .highlight-red}.
+:::
 
+::: {.column width="45%"}
+![](img/sampler.png){.absolute height="80%" left="1000" top="0"}
+:::
 :::
 
 [^1]: The [Proximity Search](https://solr.apache.org/guide/6_6/the-standard-query-parser.html#TheStandardQueryParser-ProximitySearches) feature provided by the Solr database is utilized to conduct a search based on the occurrence of words within a window of words.
-
-::: {.column width="45%"}
-
-![](img/sampler.png){.absolute height="80%" left="1000" top="0"}
-
-:::
-
-:::
 
 ## Pipeline {background-color="#FFF4E0"}
 
@@ -343,7 +327,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
 
 ### `r fontawesome::fa('circle-info', fill = 'white')` [Info]{.white}
 
-::: {.nonincremental}
+::: nonincremental
 -   Topic Selected: Social Unrest
 
 -   Country: Sudan
@@ -357,7 +341,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
 
 ### `r fontawesome::fa('home', fill = 'white')` [Dashboard]{.white}
 
-![](img/te-01.png){fig-align="center" width='90%'}
+![](img/te-01.png){fig-align="center" width="90%"}
 
 ### `r fontawesome::fa('puzzle-piece', fill = 'white')` [Insights]{.white}
 
@@ -377,8 +361,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
 ##  {.center background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.25"}
 
 ::: r-fit-text
-[Data Lab]{.faoblue}
-[Trends]{.faoblue .flow}
+[Data Lab]{.faoblue} [Trends]{.faoblue .flow}
 :::
 
 ## [Data Lab Trends]{.white} {.white .center background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.15"}
@@ -390,15 +373,13 @@ https://en.wikipedia.org/wiki/Apache_Solr
 ## [Data Lab Trends - Fertilizers]{.white} {.center .white background-image="img/TRENDS-BANNER.jpeg" background-opacity="0.10"}
 
 ::: panel-tabset
-
 ### [`r fontawesome::fa('expand', fill = 'white')` View]{.white}
 
-![](img/dl-trends-01.png){fig-align="center" width='80%'}
+![](img/dl-trends-01.png){fig-align="center" width="80%"}
 
 ### `r fontawesome::fa('circle-info', fill = 'white')` [Info]{.white}
 
-::: {.nonincremental}
-
+::: nonincremental
 -   **Search query: "fertilizers"**
 
 -   Jan/2020 - Apr/2023
@@ -412,7 +393,7 @@ https://en.wikipedia.org/wiki/Apache_Solr
 
 ### `r fontawesome::fa('home', fill = 'white')` [Dashboard]{.white}
 
-![](img/dl-trends-02-fertilizers.png){fig-align="center" width='100%'}
+![](img/dl-trends-02-fertilizers.png){fig-align="center" width="100%"}
 
 ### `r fontawesome::fa('puzzle-piece', fill = 'white')` [Country]{.white}
 
@@ -431,24 +412,21 @@ https://en.wikipedia.org/wiki/Apache_Solr
 <https://www.fao.org/datalab/early-warnings/data-lab-trends/en>
 :::
 
-## Concluding Remarks {.center background-color='#414042' .justify background-image="img/vidar-nordli-mathisen-Kuu5mmxkwW4-unsplash.jpeg" background-opacity="0.10"}
+## Concluding Remarks {.center .justify background-color="#414042" background-image="img/vidar-nordli-mathisen-Kuu5mmxkwW4-unsplash.jpeg" background-opacity="0.10"}
 
-::: {.nonincremental}
+::: nonincremental
+-   The Data Lab developed multiple monitoring tools that use newspaper articles published on Twitter as input information
 
-- The Data Lab developed multiple monitoring tools that use newspaper articles published on Twitter as input information
+-   News are an exhaustive source of information to build almost real-time warning indicators
 
-- News are an exhaustive source of information to build almost real-time warning indicators
+-   They are "soft" indicators that help fill data gaps in countries where little data is available
 
-- They are “soft” indicators that help fill data gaps in countries where little data is available 
-
-- The different monitoring tools can be accessed on the FAO Data Lab website: [www.fao.org/datalab](www.fao.org/datalab)
-
+-   The different monitoring tools can be accessed on the FAO Data Lab website: [www.fao.org/datalab](www.fao.org/datalab)
 :::
 
-## Photos {.center background-color='#414042'}
+## Photos {.center background-color="#414042"}
 
-::: {.nonincremental}
-
+::: nonincremental
 -   Photo by <a href="https://unsplash.com/@tateisimikito?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jukan Tateisi</a> on <a href="https://unsplash.com/photos/bJhT_8nbUA0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 -   Photo by <a href="https://unsplash.com/@impatrickt?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Patrick Tomasso</a> on <a href="https://unsplash.com/photos/Oaqk7qqNh_c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
@@ -460,12 +438,8 @@ https://en.wikipedia.org/wiki/Apache_Solr
 -   Photo by <a href="https://unsplash.com/pt-br/@iamromankraft?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Roman Kraft</a> on <a href="https://unsplash.com/pt-br/fotografias/_Zua2hyvTBk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
 -   Photo by <a href="https://unsplash.com/@vidarnm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Vidar Nordli-Mathisen</a> on <a href="https://unsplash.com/photos/black-asphalt-road-between-brown-fields-during-daytime-Kuu5mmxkwW4?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-  
--   Photo by <a href="https://unsplash.com/@etiennegirardet?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Etienne Girardet</a> on <a href="https://unsplash.com/photos/a-yellow-and-white-sign-that-reads-obrigado-jWQ2rMkPnNI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 
+-   Photo by <a href="https://unsplash.com/@etiennegirardet?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Etienne Girardet</a> on <a href="https://unsplash.com/photos/a-yellow-and-white-sign-that-reads-obrigado-jWQ2rMkPnNI?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 :::
 
-## {background-color='#414042' background-image="img/etienne-girardet-jWQ2rMkPnNI-unsplash.jpeg" background-opacity="0.8"}
-
-
-
+##  {background-color="#414042" background-image="img/etienne-girardet-jWQ2rMkPnNI-unsplash.jpeg" background-opacity="0.8"}
