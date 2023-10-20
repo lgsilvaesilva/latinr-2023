@@ -4,7 +4,7 @@ project:
 website:
   favicon: '/img/logo.png'
   twitter-card: true
-  site-url: https://example.com
+  site-url: lgsilvaesilva.github.io/latinr-2023/
 
 twitter-card:
   title: "Producing Early Warnings through Online News with R"
