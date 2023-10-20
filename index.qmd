@@ -1,6 +1,8 @@
 ---
+# title: 'Producing Early Warnings through Online News with R'
 format: 
   revealjs:
+    include-in-header: meta.txt
     theme: [default, style.scss]
     slide-number: c/t
     logo: "https://www.fao.org/images/corporatelibraries/fao-logo/fao-logo-en.svg?sfvrsn=f64522b4_36"

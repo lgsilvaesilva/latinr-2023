@@ -1,17 +1,18 @@
 project:
-  title: "latin-r2023"
+  pre-render: meta.R
+  post-render: clean_meta.R
 
-website:
-  favicon: '/img/logo.png'
-  twitter-card: true
-  site-url: lgsilvaesilva.github.io/latinr-2023/
-
-twitter-card:
-  title: "Producing Early Warnings through Online News with R"
-  description: 'Monitoring SDGs-related topics over time to better inform policymakers of the underlying key issues and the related national and international sentiments'
-  creator: "@lgsilvaesilva"
-  site: "@fao"  
-  image: "/img/TOPICS-EXPLORER-BANNER.jpeg"
+# website:
+#   favicon: '/img/logo.png'
+#   twitter-card: true
+#   site-url: lgsilvaesilva.github.io/latinr-2023/
+# 
+# twitter-card:
+#   title: "Producing Early Warnings through Online News with R"
+#   description: 'Monitoring SDGs-related topics over time to better inform policymakers of the underlying key issues and the related national and international sentiments'
+#   creator: "@lgsilvaesilva"
+#   site: "@fao"  
+#   image: "/img/TOPICS-EXPLORER-BANNER.jpeg"
     
 editor: visual
 
