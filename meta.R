@@ -6,7 +6,7 @@ writeLines(
     LatinR Conference 2023. 
     "),
     url = "https://lgsilvaesilva.github.io/latinr-2023/",
-    image = "https://github.com/lgsilvaesilva/latinr-2023/blob/main/img/TOPICS-EXPLORER-BANNER.jpeg?raw=true",
+    image = "https://raw.githubusercontent.com/lgsilvaesilva/latinr-2023/main/img/TOPICS-EXPLORER-BANNER.jpeg",
     image_alt = glue::glue("
       Producing Early Warnings through Online News with R \\
       at LatinR Conference 2023.
